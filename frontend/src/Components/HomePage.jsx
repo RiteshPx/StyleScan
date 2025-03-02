@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./Navbar";
 import home from '../Assests/images/home.jpeg';
 import { Link } from "react-router-dom";
 
@@ -25,7 +24,7 @@ function Homepage() {
         {/* <div className="absolute inset-0 bg-background1 transform -skew-y-12  origin-top-left "></div> */}
 
         {/* Content */}
-        <Navbar />
+        
         <main className="flex relative  -skew-y-6  items-center justify-evenly">
           <div className=" flex flex-col items-center justify-center h-screen  text-center px-4">
             <h1 className="text-background1 font-extrabold text-6xl font-cursive"> Discover Your Perfect Look</h1>

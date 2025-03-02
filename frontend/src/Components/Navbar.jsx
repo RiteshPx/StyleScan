@@ -3,19 +3,19 @@ import { FaInstagram, FaFacebookF } from "react-icons/fa";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center px-8 py-4 bg-background2 fixed w-full top-0 shadow-md z-10">
+    <nav className="flex justify-between items-center px-8 py-4 bg-transparent fixed w-full top-0 shadow-md z-10">
       {/* Left - Logo */}
       <div className="text-white font-bold text-xl">StyleScan AI</div>
 
       {/* Center - Menu */}
-      <div className="hidden md:flex space-x-8 font-bold text-black">
-        <a href="#home" className="hover:font-cursive hover:text-xl hover:text-white transition">
+      <div className="hidden md:flex space-x-16 font-bold text-black">
+        <a href="/" className=" hover:text-xl hover:text-white transition">
           Home
         </a>
-        <a href="#contact" className="hover:font-cursive hover:text-xl hover:text-white transition">
+        <a href="/contact" className=" hover:text-xl hover:text-white transition">
           Contact
         </a>
-        <a href="#support" className="hover:font-cursive hover:text-xl hover:text-white transition">
+        <a href="/about" className=" hover:text-xl hover:text-white transition">
           Support
         </a>
       </div>

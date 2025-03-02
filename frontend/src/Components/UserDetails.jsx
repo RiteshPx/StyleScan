@@ -1,85 +1,17 @@
-// import React from "react";
-
-// const HomePage = () => {
-//   return (
-//     <div className="bg-pastelPink min-h-screen">
-//       {/* Header */}
-//       <header className="flex justify-between items-center py-4 px-8 bg-white shadow-md">
-//         <h1 className="text-xl font-bold text-darkerPink">YourProjectName</h1>
-//         <nav className="flex gap-4">
-//           <a href="#" className="text-textGray hover:text-darkerPink">Home</a>
-//           <a href="#" className="text-textGray hover:text-darkerPink">How It Works</a>
-//           <a href="#" className="text-textGray hover:text-darkerPink">Contact</a>
-//         </nav>
-//       </header>
-
-//       {/* Hero Section */}
-//       <main className="text-center py-20">
-//         <h2 className="text-4xl font-bold text-textGray mb-4">
-//           Find Your Perfect Look!
-//         </h2>
-//         <p className="text-lg text-textGray mb-8">
-//           Upload a photo to discover eyeglasses and outfits that match your unique style.
-//         </p>
-//         <button className="bg-darkerPink text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-pink-600">
-//           Upload Your Photo
-//         </button>
-//       </main>
-
-//       {/* Features Section */}
-//       <section className="py-16 bg-white">
-//         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-//           <div>
-//             <div className="w-16 h-16 mx-auto bg-darkerPink rounded-full flex items-center justify-center text-white text-2xl">
-//               🖼️
-//             </div>
-//             <h3 className="text-xl font-semibold text-textGray mt-4">Face Shape Detection</h3>
-//             <p className="text-textGray mt-2">
-//               Analyze your face shape to find the perfect eyewear.
-//             </p>
-//           </div>
-//           <div>
-//             <div className="w-16 h-16 mx-auto bg-darkerPink rounded-full flex items-center justify-center text-white text-2xl">
-//               🎨
-//             </div>
-//             <h3 className="text-xl font-semibold text-textGray mt-4">Skin Tone Analysis</h3>
-//             <p className="text-textGray mt-2">
-//               Match outfits and colors to your skin tone.
-//             </p>
-//           </div>
-//           <div>
-//             <div className="w-16 h-16 mx-auto bg-darkerPink rounded-full flex items-center justify-center text-white text-2xl">
-//               💡
-//             </div>
-//             <h3 className="text-xl font-semibold text-textGray mt-4">Personalized Recommendations</h3>
-//             <p className="text-textGray mt-2">
-//               Get tailored suggestions for eyeglasses and clothing.
-//             </p>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Footer */}
-//       <footer className="bg-darkerPink text-white py-4 text-center">
-//         <p>© 2024 YourProjectName. All rights reserved.</p>
-//       </footer>
-//     </div>
-//   );
-// };
-
-// export default HomePage
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import image from '../Assests/images/imgForm.jpg';
 
 export const UserDetails = () => {
   const [formData, setFormData] = useState({
     name: "",
     gender: "",
+    height: "",
     image: null,
   });
 
   const [imagePreview, setImagePreview] = useState(null);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -109,18 +41,23 @@ export const UserDetails = () => {
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-primary p-8"
-    //   style={{ backgroundColor: "#16FFBD" }}
+      style={{
+        backgroundImage: `url(${image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
       <div
-        className="w-full max-w-md bg-background2 p-6 rounded-lg shadow-lg"
-        // style={{ backgroundColor: "#12C998" }}
+        className="w-full max-w-md mt-16 bg-white p-6 rounded-lg shadow-lg"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
       >
         <h2
-          className="text-2xl font-bold text-center text-black mb-4"
-            >
+          className="text-3xl font-bold text-center text-primary mb-4"
+          style={{ color: "#C34271" }}
+        >
           User Registration Form
         </h2>
-        <p className="text-center text-white mb-6">
+        <p className="text-center text-gray-700 mb-6">
           Fill in your details below and upload an image. You’ll see the image preview before submitting the form.
         </p>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -129,7 +66,7 @@ export const UserDetails = () => {
             <label
               htmlFor="name"
               className="block text-secondary font-semibold mb-1"
-              style={{ color: "black" }}
+              style={{ color: "#439F76" }}
             >
               Full Name
             </label>
@@ -149,8 +86,8 @@ export const UserDetails = () => {
           <div>
             <label
               htmlFor="gender"
-              className="block text-black font-semibold mb-1"
-              // style={{ color: "#F070A1" }}
+              className="block text-secondary font-semibold mb-1"
+              style={{ color: "#439F76" }}
             >
               Gender
             </label>
@@ -170,12 +107,33 @@ export const UserDetails = () => {
             </select>
           </div>
 
+          {/* Height */}
+          <div>
+            <label
+              htmlFor="height"
+              className="block text-secondary font-semibold mb-1"
+              style={{ color: "#439F76" }}
+            >
+              Height (in cm)
+            </label>
+            <input
+              type="number"
+              id="height"
+              name="height"
+              value={formData.height}
+              onChange={handleChange}
+              className="w-full border border-accent p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+              placeholder="Enter your height"
+              required
+            />
+          </div>
+
           {/* Image Upload */}
           <div>
             <label
               htmlFor="image"
-              className="block text-secondary  font-semibold mb-1"
-              style={{ color: "black" }}
+              className="block text-secondary font-semibold mb-1"
+              style={{ color: "#439F76" }}
             >
               Upload Profile Picture
             </label>
@@ -220,5 +178,3 @@ export const UserDetails = () => {
     </div>
   );
 };
-
-// export default UserForm;

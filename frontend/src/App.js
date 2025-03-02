@@ -1,5 +1,6 @@
 import './App.css';
 import Home from './Components/HomePage';
+import Navbar from './Components/Navbar';
 import { About } from './Components/About';
 import { Contact } from './Components/Contact';
 import {  Route, Routes } from "react-router-dom";
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="App">
        {/* <Home/> */}
+       <Navbar></Navbar>
 
 
   {/* Routes */}
